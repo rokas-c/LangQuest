@@ -1,41 +1,73 @@
-import { StatusBar, SafeAreaView, View, Text, Image } from 'react-native';
-import question from '../assets/data/oneQuestionWithOption';
-import ImageOption from '~/components/ImageOption';
-import { useState } from 'react';
-import CustomButton from '~/components/CustomButton';
-
-type Option = {
-  id: string;
-  image: string;
-  text: string;
-};
+import React, { useEffect, useState } from 'react';
+import { Alert, StatusBar } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import questions from '~/assets/data/AllQuestionsData';
+import MultipleChoiceQuestion from './MultipleChoiceQuestion';
+import EndedQuestion from '~/components/EndedQuestion';
+import { QuizQuestion } from '~/types';
+import HeaderComponent from '~/components/HeaderComponent';
 
 export default function Home() {
-  const [selected, setSelected] = useState<Option | null>(null);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [currentQuestion, setCurrentQuestion] = useState<QuizQuestion>(
+    questions[currentQuestionIndex]
+  );
+  const [lives, setLives] = useState(5);
 
-  const onButtonPress = () => {
-   console.warn('Pasirinktas atsakymas', selected?.text);
+  useEffect(() => {
+    if (currentQuestionIndex >= questions.length) {
+      Alert.alert('Jūs laimėjote!');
+      setCurrentQuestionIndex(0);
+    } else {
+      setCurrentQuestion(questions[currentQuestionIndex]);
+    }
+  }, [currentQuestionIndex]);
 
+  const onCorrectAnswer = () => {
+    setCurrentQuestionIndex(currentQuestionIndex + 1);
+  };
+
+  const onWrongAnswer = () => {
+    if (lives <= 1) {
+      Alert.alert('Jus pralaimejote!', 'Bandykite dar karta!', [
+        { text: 'Bandyti dar karta', onPress: restart },
+      ]);
+      setLives(0);
+    } else {
+      Alert.alert('Neteisingas atsakymas, bandykite dar kartą!');
+      setLives(lives - 1);
+    }
+  };
+
+  const restart = () => {
+    setLives(5);
+    setCurrentQuestionIndex(0);
   };
 
   return (
-    <SafeAreaView className="flex flex-1 items-center justify-center p-3">
-      <StatusBar animated barStyle={'light-content'} />
-      <Text className="mb-4 text-center text-2xl font-bold">{question.question}</Text>
+    <SafeAreaView className="flex flex-1 p-3">
+      <StatusBar animated barStyle={'default'} />
 
-      <View className="w-full flex-1 flex-row flex-wrap justify-between gap-2">
-        {question.options.map((option) => (
-          <ImageOption
-            key={option.id}
-            image={option.image}
-            text={option.text}
-            isSelected={selected?.id=== option.id}
-            onPress={() => setSelected(option)}
-          />
-        ))}
-      </View>
+      {/* Header */}
+      <HeaderComponent progress={currentQuestionIndex / questions.length} lives={lives} />
 
-      <CustomButton text="Patvirtinti" onPress={onButtonPress} disabled={!selected}/>
+      {currentQuestion.type === 'MULTIPLE_CHOICE' && (
+        <MultipleChoiceQuestion
+          question={{
+            question: currentQuestion.text,
+            options: currentQuestion.options || [],
+          }}
+          onCorrectAnswer={onCorrectAnswer}
+          onWrongAnswer={onWrongAnswer}
+        />
+      )}
+      {currentQuestion.type === 'OPEN_ENDED' && (
+        <EndedQuestion
+          question={currentQuestion}
+          onCorrectAnswer={onCorrectAnswer}
+          onWrongAnswer={onWrongAnswer}
+        />
+      )}
     </SafeAreaView>
   );
 }

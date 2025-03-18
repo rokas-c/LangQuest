@@ -30,6 +30,6 @@
     "type": "Windows_NT",
     "platform": "win32",
     "arch": "x64",
-    "kernelVersion": "10.0.19045"
+    "kernelVersion": "10.0.26100"
   }
 }
