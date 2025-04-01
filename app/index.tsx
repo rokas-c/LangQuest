@@ -1,156 +1,135 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
+import { AntDesign } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 
 const Home = () => {
   const router = useRouter();
 
   return (
-    <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.gradientContainer}>
-      {/* Dot Background */}
-      <View style={styles.dotContainer}>
-        {[...Array(30)].map((_, index) => (
-          <View
-            key={index}
-            style={[
-              styles.dot,
-              {
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                opacity: Math.random(), // Random opacity for dynamic look
-              },
-            ]}
-          />
-        ))}
+    <View style={styles.container}>
+      {/* Top Gradient Section */}
+      <LinearGradient
+        colors={['#FFD700', '#FFA500']} // Yellow to orange gradient (like profile)
+        style={styles.gradientTop}
+      >
+        <View style={styles.titleContainer}>
+          <Text style={styles.icon}>📚</Text>
+          <Text style={styles.title}>LangQuest</Text>
+        </View>
+      </LinearGradient>
+
+      {/* Bottom White Section */}
+      <View style={styles.whiteBottom}>
+        {/* Play Button */}
+        <TouchableOpacity
+          style={styles.playButton}
+          onPress={() => router.push('/gameScreen')} // Navigate to game screen
+        >
+          <Text style={styles.buttonText}>Play</Text>
+        </TouchableOpacity>
+
+        {/* EULA Button */}
+        <TouchableOpacity
+          style={styles.eulaButton}
+          onPress={() => router.push('/eulaScreen')} // Navigate to EULA screen
+        >
+          <Text style={styles.buttonText}>EULA</Text>
+        </TouchableOpacity>
       </View>
 
-      {/* Title with icon */}
-      <View style={styles.titleContainer}>
-        <Text style={styles.icon}>📚</Text>
-        <Text style={styles.title}>LangQuest</Text>
+      {/* Top Icons */}
+      <View style={styles.topIcons}>
+        <TouchableOpacity onPress={() => router.push('/optionsScreen')} style={styles.iconButton}>
+          <AntDesign name="setting" size={32} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => router.push('/profileScreen')} style={styles.iconButton}>
+          <AntDesign name="user" size={32} color="white" />
+        </TouchableOpacity>
       </View>
-
-      {/* Play, Options, and EULA Buttons */}
-      <TouchableOpacity
-        style={styles.playButton}
-        onPress={() => router.push('/gameScreen')} // Navigate to game screen
-      >
-        <Text style={styles.buttonText}>Play</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={styles.optionsButton}
-        onPress={() => router.push('/optionsScreen')} // Navigate to options screen
-      >
-        <Text style={styles.buttonText}>Options</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={styles.eulaButton}
-        onPress={() => router.push('/eulaScreen')} // Navigate to EULA screen
-      >
-        <Text style={styles.buttonText}>EULA</Text>
-      </TouchableOpacity>
-    </LinearGradient>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  gradientContainer: {
+  container: {
     flex: 1,
+    width: '100%',
+    height: '100%',
+  },
+  gradientTop: {
+    flex: 0.5, // Take up half of the screen height
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
-    height: '100%',
-    paddingHorizontal: 30,
-    paddingTop: 50,
-    paddingBottom: 30,
-    borderRadius: 0,
-  },
-  dotContainer: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    zIndex: 0,
-  },
-  dot: {
-    position: 'absolute',
-    width: 15,
-    height: 15,
-    borderRadius: 50,
-    backgroundColor: '#fff',
+    borderBottomLeftRadius: 40, // Rounded edges at the bottom
+    borderBottomRightRadius: 40, // Rounded edges at the bottom
+    overflow: 'hidden',
   },
   titleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 40,
-    zIndex: 1,
+    marginBottom: 20,
   },
   icon: {
-    fontSize: 40,
+    fontSize: 70, // Larger size for the icon
     marginRight: 10,
   },
   title: {
-    fontSize: 32,
+    fontSize: 36, // Larger text for the title
     fontWeight: 'bold',
-    color: '#2A3663',
-    textShadowColor: '#4F64A2', // Neon blue glow
+    color: '#2A3663', // Dark text for contrast
+    textShadowColor: '#4F64A2', // Neon glow for contrast
     textShadowOffset: { width: 0, height: 0 },
-    textShadowRadius: 15, // Larger shadow radius for glowing effect
+    textShadowRadius: 15, // Glowing effect
+  },
+  whiteBottom: {
+    flex: 0.5, // Take up the bottom half of the screen
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    borderTopLeftRadius: 40, // Rounded edges at the top
+    borderTopRightRadius: 40, // Rounded edges at the top
+    paddingBottom: 30,
   },
   playButton: {
-    backgroundColor: '#2A3663',
+    backgroundColor: '#FFD700', // Yellow gradient color (top half)
     paddingVertical: 15,
-    paddingHorizontal: 40,
+    paddingHorizontal: 50,
     borderRadius: 30,
     marginBottom: 20,
     width: '70%',
     alignItems: 'center',
-    shadowColor: '#4F64A2', // Neon blue glow
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 1,
-    shadowRadius: 25, // Increased radius for a larger glow
-    elevation: 20, // Higher elevation for more pronounced shadow
-  },
-  optionsButton: {
-    backgroundColor: '#2A3663',
-    paddingVertical: 15,
-    paddingHorizontal: 40,
-    borderRadius: 30,
-    marginBottom: 20,
-    width: '70%',
-    alignItems: 'center',
-    shadowColor: '#4F64A2', // Neon blue glow
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 1,
-    shadowRadius: 25, // Increased radius for a larger glow
-    elevation: 20, // Higher elevation for more pronounced shadow
+    elevation: 10,
   },
   eulaButton: {
-    backgroundColor: '#2A3663',
+    backgroundColor: '#fff', // White background (bottom half)
+    borderColor: '#FFD700', // Yellow border for the second half
+    borderWidth: 2,
     paddingVertical: 15,
-    paddingHorizontal: 40,
+    paddingHorizontal: 50,
     borderRadius: 30,
     width: '70%',
     alignItems: 'center',
-    shadowColor: '#4F64A2', // Neon blue glow
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 1,
-    shadowRadius: 25, // Increased radius for a larger glow
-    elevation: 20, // Higher elevation for more pronounced shadow
+    elevation: 10,
   },
   buttonText: {
-    color: '#fff',
+    color: '#2A3663', // Dark text
     fontSize: 18,
     fontWeight: 'bold',
-    textShadowColor: '#4F64A2', // Neon blue glow
-    textShadowOffset: { width: 0, height: 0 },
-    textShadowRadius: 10, // Larger radius for glowing effect
+  },
+  topIcons: {
+    position: 'absolute',
+    top: 40,
+    left: 20,
+    right: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    zIndex: 10,
+  },
+  iconButton: {
+    padding: 10,
   },
 });
 

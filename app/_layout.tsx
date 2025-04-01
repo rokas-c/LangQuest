@@ -8,6 +8,7 @@ export default function Layout() {
       <Stack.Screen name="gameScreen" options={{ headerShown: false }} />
       <Stack.Screen name="optionsScreen" options={{ headerShown: false }} />
       <Stack.Screen name="eulaScreen" options={{ headerShown: false }} />
+      <Stack.Screen name="profileScreen" options={{ headerShown: false }} />
     </Stack>
   );
 }

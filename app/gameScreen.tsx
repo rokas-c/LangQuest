@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { Alert, StatusBar } from 'react-native';
+import { Alert, StatusBar, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useRouter } from 'expo-router';
 import questions from '~/assets/data/AllQuestionsData';
 import MultipleChoiceQuestion from './MultipleChoiceQuestion';
 import EndedQuestion from '~/components/EndedQuestion';
 import { QuizQuestion } from '~/types';
 import HeaderComponent from '~/components/HeaderComponent';
 
-export default function gameScreen() {
+export default function GameScreen() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [currentQuestion, setCurrentQuestion] = useState<QuizQuestion>(
-    questions[currentQuestionIndex]
-  );
+  const [currentQuestion, setCurrentQuestion] = useState<QuizQuestion>(questions[currentQuestionIndex]);
   const [lives, setLives] = useState(5);
+  const router = useRouter(); // Initialize the router for navigation
 
   useEffect(() => {
     if (currentQuestionIndex >= questions.length) {
@@ -44,12 +44,16 @@ export default function gameScreen() {
     setCurrentQuestionIndex(0);
   };
 
+  const onBackPress = () => {
+    router.push('/')
+  }
+
   return (
     <SafeAreaView className="flex flex-1 p-3">
       <StatusBar animated barStyle={'default'} />
 
       {/* Header */}
-      <HeaderComponent progress={currentQuestionIndex / questions.length} lives={lives} />
+      <HeaderComponent progress={currentQuestionIndex / questions.length} lives={lives} onBackPress={onBackPress} />
 
       {currentQuestion.type === 'MULTIPLE_CHOICE' && (
         <MultipleChoiceQuestion
