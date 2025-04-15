@@ -186,7 +186,7 @@ const OptionsScreen = () => {
             </View>
             <View style={styles.settingTextContainer}>
               <Text style={styles.settingTitle}>Learning Language</Text>
-              <Text style={styles.settingSubtitle}>Currently learning Spanish</Text>
+              <Text style={styles.settingSubtitle}>Currently learning Lithuanian</Text>
             </View>
             <Ionicons name="chevron-forward" size={18} color="#9CA3AF" />
           </TouchableOpacity>

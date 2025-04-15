@@ -140,10 +140,12 @@ const MainPage = () => {
           </LinearGradient>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.navButton} onPress={() => router.push('/')}>
-          <Ionicons name="stats-chart-outline" size={22} color="#6B7280" />
-          <Text style={styles.navText}>Stats</Text>
-        </TouchableOpacity>
+        {
+          <TouchableOpacity style={styles.navButton} onPress={() => router.push('/')}>
+            <Ionicons name="stats-chart-outline" size={22} color="#6B7280" />
+            <Text style={styles.navText}>Stats</Text>
+          </TouchableOpacity>
+        }
 
         <TouchableOpacity style={styles.navButton} onPress={() => router.push('/optionsScreen')}>
           <Ionicons name="settings-outline" size={22} color="#6B7280" />

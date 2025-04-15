@@ -12,10 +12,12 @@ import {
 import { useRouter } from 'expo-router';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useUser } from '@clerk/clerk-expo';
 
 const ProfileScreen = () => {
   const router = useRouter();
-  const [username, setUsername] = useState('Alex Johnson');
+  const { user } = useUser();
+  const [username, setUsername] = useState(user?.firstName);
   const [isEditing, setIsEditing] = useState(false);
 
   const handleEditClick = () => {
