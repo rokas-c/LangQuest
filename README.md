@@ -31,9 +31,9 @@ LangQuest is an interactive language learning game that helps Lithuanian speaker
 ## Screenshots
 
 <div align="center">
-  <img src="https://res-console.cloudinary.com/dknalmer3/thumbnails/v1/image/upload/v1745938709/U2NyZWVuc2hvdF8yMDI1LTA0LTI5XzE3NTgxNV9jOG1lZW8=/preview" alt="Home Screen" width="250"/>
-  <img src="https://res-console.cloudinary.com/dknalmer3/thumbnails/v1/image/upload/v1745938772/U2NyZWVuc2hvdF8yMDI1LTA0LTI5XzE3NTkyNV9jeTQ0ZmY=/preview" alt="Gameplay" width="250"/>
-  <img src="https://res-console.cloudinary.com/dknalmer3/thumbnails/v1/image/upload/v1745938808/U2NyZWVuc2hvdF8yMDI1LTA0LTI5XzE4MDAwNF94NG9iNTY=/preview" alt="Progress Tracking" width="250"/>
+  <img src="https://res.cloudinary.com/dknalmer3/image/upload/v1745938709/Screenshot_2025-04-29_175815_c8meeo.jpg" alt="Home Screen" width="250"/>
+  <img src="https://res.cloudinary.com/dknalmer3/image/upload/v1745938808/Screenshot_2025-04-29_180004_x4ob56.jpg" alt="Gameplay" width="250"/>
+  <img src="https://res.cloudinary.com/dknalmer3/image/upload/v1745938772/Screenshot_2025-04-29_175925_cy44ff.jpg" alt="Progress Tracking" width="250"/>
 </div>
 
 ## Requirements
