@@ -2,19 +2,20 @@
 
 <div align="center">
   
-  ![LangQuest Logo](https://raw.githubusercontent.com/USERNAME/LangQuest/main/assets/logo.png)
+  <h1 style="font-size: 72px">LQ</h1>
 
 **Learn English through adventure – designed for Lithuanian speakers**
 
-[![Swift Version](https://img.shields.io/badge/Swift-5.5-orange.svg)](https://swift.org)
-[![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20iPadOS-blue.svg)](https://apple.com)
+[![React Native](https://img.shields.io/badge/React%20Native-Expo-blue.svg)](https://expo.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-4.9+-blue.svg)](https://www.typescriptlang.org)
+[![Platforms](https://img.shields.io/badge/Platforms-iOS%20%7C%20Android-green.svg)](https://expo.dev)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 </div>
 
 ## Overview
 
-LangQuest is an interactive language learning game that helps Lithuanian speakers learn English through engaging gameplay and immersive storytelling. The app combines modern learning techniques with gamification elements to make language acquisition fun and effective.
+LangQuest is an interactive language learning game that helps Lithuanian speakers learn English through engaging gameplay and immersive storytelling. Similar to Duolingo, the app combines modern learning techniques with gamification elements to make language acquisition fun and effective.
 
 ## Features
 
@@ -25,6 +26,7 @@ LangQuest is an interactive language learning game that helps Lithuanian speaker
 - **Vocabulary Building**: Build your English vocabulary in practical contexts
 - **Grammar Practice**: Learn grammar rules naturally through interactive scenarios
 - **Pronunciation Guide**: Audio examples to improve speaking skills
+- **Secure Authentication**: Powered by Clerk for safe and easy sign-in
 
 ## Screenshots
 
@@ -36,51 +38,55 @@ LangQuest is an interactive language learning game that helps Lithuanian speaker
 
 ## Requirements
 
-- iOS 15.0+ / iPadOS 15.0+
-- Xcode 13.0+
-- Swift 5.5+
+- Node.js 14.0+
+- Expo CLI
+- iOS 13.0+ / Android 6.0+
 
 ## Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/USERNAME/LangQuest.git
+git clone https://github.com/rokas-c/LangQuest
 
 # Navigate to project directory
 cd LangQuest
 
-# Open the project in Xcode
-open LangQuest.xcodeproj
+# Install dependencies
+npm install
+
+# Start the development server
+npm run start
 ```
 
 ## Usage
 
-Once installed, simply open the app and follow the onboarding process. Create a profile, choose your current proficiency level, and start your language learning adventure!
+Once installed, run the app on your device or emulator. Create a profile, choose your current proficiency level, and start your language learning adventure!
 
 ## Technologies
 
-- SwiftUI for modern, responsive UI
-- Core Data for progress tracking
-- AVFoundation for audio playback
-- Combine for reactive programming
+- React Native with Expo for cross-platform development
+- TypeScript for type-safe code
+- Clerk for authentication and user management
+- React Navigation for seamless screen transitions
+- Async Storage for local data persistence
 
 ## Roadmap
 
 - [ ] Additional learning paths for different proficiency levels
-- [ ] Multiplayer challenges and competitions
-- [ ] Expanded vocabulary modules
-- [ ] Community features for learners
-- [ ] Additional language support
+- [ ] Challanges
+- [ ] Daily streaks and reminders
+- [ ] Statistics
+- [ ] Daily exercises
+- [ ] Working Settings
 
-## Contributing
+## Updates
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Regular updates will be released to add new content, learning paths, and features. Stay tuned for:
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+- New vocabulary themes and challenges
+- Enhanced audio and visual learning resources
+- Performance improvements and UI enhancements
+- More gamification elements
 
 ## License
 
@@ -88,7 +94,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-Project Link: [https://github.com/USERNAME/LangQuest](https://github.com/USERNAME/LangQuest)
+Project Link: [https://github.com/rokas-c/LangQuest](https://github.com/rokas-c/LangQuest)
 
 ---
 
