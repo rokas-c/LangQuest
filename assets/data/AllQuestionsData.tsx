@@ -4,7 +4,7 @@ const questions: QuizQuestion[] = [
   {
     id: 'q1',
     type: 'MULTIPLE_CHOICE',
-    text: "Kur yra 'stiklinė'?",
+    text: 'Kur yra stiklinė?',
     options: [
       {
         id: 'option1',
@@ -37,8 +37,8 @@ const questions: QuizQuestion[] = [
   },
   {
     id: 'q2',
-    type: 'MULTIPLE_CHOICE', 
-    text: "Kur yra 'kava'?",
+    type: 'MULTIPLE_CHOICE',
+    text: 'Kur yra kava?',
     options: [
       {
         id: 'option4',
@@ -71,8 +71,8 @@ const questions: QuizQuestion[] = [
   },
   {
     id: 'q3',
-    type: 'MULTIPLE_CHOICE', 
-    text: "Kur yra 'puodelis'?",
+    type: 'MULTIPLE_CHOICE',
+    text: 'Kur yra puodelis?',
     options: [
       {
         id: 'option3',
@@ -100,7 +100,7 @@ const questions: QuizQuestion[] = [
   {
     id: 'q4',
     type: 'MULTIPLE_CHOICE',
-    text: "Kur yra 'pienas'?",
+    text: 'Kur yra pienas?',
     options: [
       {
         id: 'option2',

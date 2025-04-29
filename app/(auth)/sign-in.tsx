@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
+import { router } from 'expo-router';
 
 export const useWarmUpBrowser = () => {
   useEffect(() => {
@@ -94,7 +95,7 @@ export default function Page() {
           <View style={styles.divider} />
         </View>
 
-        <TouchableOpacity style={styles.emailButton}>
+        <TouchableOpacity style={styles.emailButton} onPress={() => router.push('/mainPage')}>
           <LinearGradient
             colors={['#4F46E5', '#6366F1']}
             style={styles.emailButtonGradient}
