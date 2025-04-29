@@ -45,7 +45,7 @@ LangQuest is an interactive language learning game that helps Lithuanian speaker
 ## Installation
 
 ```bash
-# Clone the repository
+# Clone the repository.
 git clone https://github.com/rokas-c/LangQuest
 
 # Navigate to project directory
