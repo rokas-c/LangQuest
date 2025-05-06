@@ -8,8 +8,6 @@ export default function Index() {
 
   const { user } = useUser();
 
-  console.log(user);
-
   if (!isLoaded) {
     return <Text>Loading...</Text>;
   }
